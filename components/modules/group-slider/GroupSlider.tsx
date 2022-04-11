@@ -6,9 +6,9 @@ import React from "react";
 import SliderItem from "./components/slider-item/SliderItem";
 
 const GroupSlider = ({ title, animes }: IGroupSlider) => {
-  console.log(animes);
   const [sliderRef] = useKeenSlider({
     loop: true,
+    mode: "free-snap",
     breakpoints: {
       "(min-width: 190px)": {
         slides: { perView: 2, spacing: 10 },
@@ -51,7 +51,7 @@ const GroupSlider = ({ title, animes }: IGroupSlider) => {
       <h2 className="header">{title}</h2>
       <div className="line"></div>
       <div className="keen-slider" ref={sliderRef}>
-        {animes.map((anime) => (
+        {animes?.map((anime) => (
           <SliderItem key={anime._id} anime={anime} />
         ))}
       </div>

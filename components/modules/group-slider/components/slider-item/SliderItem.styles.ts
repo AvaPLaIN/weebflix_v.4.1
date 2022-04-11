@@ -9,7 +9,6 @@ export const SliderItemContainer = styled.div`
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   overflow: hidden;
-  transition: all 0.1s ease-in-out;
 
   .link {
     width: 100%;

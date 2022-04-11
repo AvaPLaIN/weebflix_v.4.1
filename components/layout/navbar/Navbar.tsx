@@ -1,6 +1,6 @@
-import Link from "next/link";
 import Menu from "../../modules/menu/Menu";
 import { NavbarContainer } from "./Navbar.styles";
+import Link from "next/link";
 
 const Navbar = () => {
   return (

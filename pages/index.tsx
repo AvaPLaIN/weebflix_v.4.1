@@ -21,7 +21,8 @@ export async function getStaticProps() {
     { status: "ongoing" },
     { episodes: 0 }
   ).limit(20);
-  const movies = await Anime.find({ type: "movie" }, { episodes: 0 });
+
+  const movies = await Anime.find({ type: "movie" }).limit(20);
 
   const transform = {
     airingAnimes: JSON.parse(JSON.stringify(airingAnimes)),
