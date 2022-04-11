@@ -4,7 +4,6 @@ import Anime from "../models/Anime";
 import HighlightSlider from "../components/modules/highlight-slider/HighlightSlider";
 
 const Home: NextPage = ({ highlightSliderAnimes }: { [key: string]: any }) => {
-  console.log(highlightSliderAnimes);
   return (
     <div>
       <HighlightSlider highlightAnimes={highlightSliderAnimes} />
