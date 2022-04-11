@@ -1,13 +1,13 @@
 import type { NextPage } from "next";
 import { dbConnect } from "../lib/mongodb";
 import Anime from "../models/Anime";
+import HighlightSlider from "../components/modules/highlight-slider/HighlightSlider";
 
 const Home: NextPage = ({ highlightSliderAnimes }: { [key: string]: any }) => {
   console.log(highlightSliderAnimes);
   return (
     <div>
-      Hi
-      {/* <HighlightSlider highlightAnimes={highlightSliderAnimes} /> */}
+      <HighlightSlider highlightAnimes={highlightSliderAnimes} />
     </div>
   );
 };

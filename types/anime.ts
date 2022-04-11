@@ -1,0 +1,20 @@
+export type Anime = {
+  _id?: string;
+  page?: number;
+  id?: number;
+  titleEng?: string;
+  titleJpn?: string;
+  groupName?: string;
+  type?: string;
+  description?: string;
+  banner?: string;
+  thumnail?: string;
+  logo?: number;
+  genres?: [string];
+  status?: string;
+  episodes?: number;
+  episodesCount?: number;
+  released?: string;
+  updatedAt?: string;
+  createdAt?: string;
+};

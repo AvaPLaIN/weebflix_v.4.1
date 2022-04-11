@@ -1,0 +1,46 @@
+import Link from "next/link";
+import React, { memo } from "react";
+import { HighlightItemContainer } from "./HighlightItem.styles";
+import Image from "../../../../widgets/image";
+import { IHighlightItemProps } from "./HighlightItem.types";
+
+// eslint-disable-next-line react/display-name
+const HighlightItem = memo(({ anime }: IHighlightItemProps) => {
+  return (
+    <HighlightItemContainer>
+      <Image
+        src={`/api/imageProxy?url=${encodeURIComponent(anime.banner)}`}
+        alt={`${anime.titleEng} banner`}
+        priority
+        quality={80}
+      />
+      <div className="highlight-anime-details-container">
+        <p className="genres">
+          {anime?.genres?.slice(-3).map((genre, index) => (
+            <span key={index}>{genre}</span>
+          ))}
+        </p>
+        <h1 className="title">
+          <span className="title-group">{anime.groupName}</span>
+          <br />
+          {anime?.titleEng?.replace(anime.groupName, "")}
+        </h1>
+        <p className="description">{anime?.description}</p>
+        <div className="control-buttons">
+          <button>
+            <Link href={{ pathname: `/anime/${anime._id}` }}>
+              <a className="link">Play</a>
+            </Link>
+          </button>
+          <button>
+            <Link href={{ pathname: `/anime/${anime._id}` }}>
+              <a className="link">Read More</a>
+            </Link>
+          </button>
+        </div>
+      </div>
+    </HighlightItemContainer>
+  );
+});
+
+export default HighlightItem;
