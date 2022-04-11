@@ -2,11 +2,14 @@ import type { NextPage } from "next";
 import { dbConnect } from "../lib/mongodb";
 import Anime from "../models/Anime";
 import HighlightSlider from "../components/modules/highlight-slider/HighlightSlider";
+import GroupSlider from "../components/modules/group-slider/GroupSlider";
 
-const Home: NextPage = ({ highlightSliderAnimes }: { [key: string]: any }) => {
+const Home: NextPage = ({ airingAnimes, movies }: { [key: string]: any }) => {
   return (
     <div>
-      <HighlightSlider highlightAnimes={highlightSliderAnimes} />
+      <HighlightSlider highlightAnimes={airingAnimes.slice(0, 5)} />
+      <GroupSlider title="Simulcast Season" animes={airingAnimes} />
+      <GroupSlider title="Movies" animes={movies} />
     </div>
   );
 };
@@ -14,18 +17,21 @@ const Home: NextPage = ({ highlightSliderAnimes }: { [key: string]: any }) => {
 //! --- GET_SERVER_SIDE_PROPS ---
 export async function getStaticProps() {
   await dbConnect();
-  const highlightSliderAnimes = await Anime.find(
+  const airingAnimes = await Anime.find(
     { status: "ongoing" },
     { episodes: 0 }
-  ).limit(5);
+  ).limit(20);
+  const movies = await Anime.find({ type: "movie" }, { episodes: 0 });
 
   const transform = {
-    highlightSliderAnimes: JSON.parse(JSON.stringify(highlightSliderAnimes)),
+    airingAnimes: JSON.parse(JSON.stringify(airingAnimes)),
+    movies: JSON.parse(JSON.stringify(movies)),
   };
 
   return {
     props: {
-      highlightSliderAnimes: transform.highlightSliderAnimes,
+      airingAnimes: transform.airingAnimes,
+      movies: transform.movies,
     },
   };
 }
