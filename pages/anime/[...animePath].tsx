@@ -64,9 +64,12 @@ export async function getStaticProps({
 }) {
   await dbConnect();
 
-  const anime = await Anime.findOne({
-    _id: params.animePath[1],
-  });
+  const anime = await Anime.findOne(
+    {
+      _id: params.animePath[1],
+    },
+    { episodes: 0 }
+  );
 
   const transformedAnime = {
     anime: JSON.parse(JSON.stringify(anime)),
