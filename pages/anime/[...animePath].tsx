@@ -27,8 +27,6 @@ export async function getStaticPaths() {
     const slugifiedTitle = slugifyString(anime?.titleEng);
     const stringifiedId = anime?._id?.toString();
 
-    console.log("slugifiedTitle", slugifiedTitle);
-
     return {
       params: {
         animePath: [slugifiedTitle, stringifiedId],
