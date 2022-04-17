@@ -28,7 +28,7 @@ const Menu = () => {
   //* If user is not authenticated, show sign in button
   if (!session)
     return (
-      <Button variant="outlined" onClick={() => signIn}>
+      <Button variant="outlined" onClick={() => signIn()}>
         Login
       </Button>
     );

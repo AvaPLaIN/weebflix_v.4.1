@@ -31,7 +31,7 @@ export async function getStaticPaths() {
 
     return {
       params: {
-        info: [slugifiedTitle, stringifiedId],
+        animePath: [slugifiedTitle, stringifiedId],
         id: anime.id,
       },
     };
@@ -46,7 +46,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({
   params,
 }: {
-  params: { info: string; id: string };
+  params: { animePath: string; id: string };
 }) {
   await dbConnect();
 
@@ -60,7 +60,7 @@ export async function getStaticProps({
 
   return {
     props: {
-      key: params.info,
+      key: params.animePath,
       anime: transformedAnime.anime,
     },
   };
