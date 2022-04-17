@@ -1,32 +1,44 @@
 import NextAuth from "next-auth";
+import GithubProvider from "next-auth/providers/github";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import clientPromise from "../../../lib/mongodb";
-import GithubProvider from "next-auth/providers/github";
-import GoogleProvider from "next-auth/providers/google";
+
+const THIRTY_DAYS = 30 * 24 * 60 * 60;
+const THIRTY_MINUTES = 30 * 60;
 
 export default NextAuth({
+  secret: process.env.NEXTAUTH_SECRET,
+  session: {
+    strategy: "jwt",
+    maxAge: THIRTY_DAYS,
+    updateAge: THIRTY_MINUTES,
+  },
+  adapter: MongoDBAdapter(clientPromise),
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
-    }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID || "",
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
-      authorization: {
-        params: {
-          prompt: "consent",
-          access_type: "offline",
-          response_type: "code",
-        },
+      profile(profile) {
+        // console.log("profile", profile);
+
+        return {
+          id: profile.id,
+          name: profile.name,
+          email: profile.email,
+          image: profile.avatar_url,
+          emailVerified: profile.emailVerified,
+          role: "USER",
+        };
       },
     }),
   ],
-  jwt: {
-    secret: process.env.JWT_SECRET,
-  },
-  session: {
-    maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-  },
-  adapter: MongoDBAdapter(clientPromise),
+  // theme: {
+  //   colorScheme: "dark",
+  // },
+  // callbacks: {
+  //   async jwt({ token }) {
+  //     token.userRole = "admin";
+  //     return token;
+  //   },
+  // },
 });
