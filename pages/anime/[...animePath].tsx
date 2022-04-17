@@ -3,8 +3,9 @@ import { useRouter } from "next/router";
 import { dbConnect } from "../../lib/mongodb";
 import Anime from "../../models/Anime";
 import { slugifyString } from "../../utils/slugifyString";
+import { Anime as AnimeType } from "../../types/anime";
 
-const AnimePage = () => {
+const AnimePage = ({ anime }: { anime: AnimeType }) => {
   const { data } = useSession();
   const router = useRouter();
 
@@ -12,6 +13,7 @@ const AnimePage = () => {
 
   return (
     <div>
+      <pre>{JSON.stringify(anime, undefined, 2)}</pre>
       <pre>{JSON.stringify(params, undefined, 2)}</pre>
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
@@ -30,7 +32,6 @@ export async function getStaticPaths() {
     return {
       params: {
         animePath: [slugifiedTitle, stringifiedId],
-        id: anime.id,
       },
     };
   });
@@ -44,12 +45,12 @@ export async function getStaticPaths() {
 export async function getStaticProps({
   params,
 }: {
-  params: { animePath: string; id: string };
+  params: { animePath: [string, string] };
 }) {
   await dbConnect();
 
   const anime = await Anime.findOne({
-    _id: params.id,
+    _id: params.animePath[1],
   });
 
   const transformedAnime = {
@@ -58,7 +59,7 @@ export async function getStaticProps({
 
   return {
     props: {
-      key: params.animePath,
+      key: params,
       anime: transformedAnime.anime,
     },
   };
