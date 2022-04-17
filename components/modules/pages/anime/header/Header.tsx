@@ -47,7 +47,7 @@ const AnimeHeader = ({
             ))}
           </div>
           <div className="info">
-            <div className="titleJap">{titleJap}</div>
+            <div className="titleJap">Japanese Title: {titleJap}</div>
             <div className="released">Released: {released}</div>
             {type !== "movie" && (
               <p className="episodes-count">Episodes: {episodesCount}</p>
