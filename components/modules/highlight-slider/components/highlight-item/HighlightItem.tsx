@@ -30,6 +30,7 @@ const HighlightItem = memo(({ anime }: IHighlightItemProps) => {
         </h1>
         <p className="description">{anime?.description}</p>
         <div className="control-buttons">
+          {/* TODO change button Link structure */}
           <button>
             <Link href={{ pathname: `/anime/${slugifiedTitle}/${anime._id}` }}>
               <a className="link">Play</a>

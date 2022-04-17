@@ -8,6 +8,7 @@ export const HighlightItemContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+
   .image {
     background-color: transparent;
     width: 100%;
@@ -16,6 +17,7 @@ export const HighlightItemContainer = styled.div`
     position: absolute;
     z-index: -1;
   }
+
   .highlight-anime-details-container {
     display: flex;
     flex-direction: column;
@@ -25,16 +27,19 @@ export const HighlightItemContainer = styled.div`
     max-width: 40%;
     position: relative;
     padding: 4rem 2rem;
+
     @media (max-width: 900px) {
       max-width: 70%;
       margin-left: 3rem;
       padding: 2rem 1rem;
     }
+
     @media (max-width: 600px) {
       max-width: 90%;
       margin-left: 1rem;
       padding: 1rem 0.5rem;
     }
+
     &::before {
       content: "";
       position: absolute;
@@ -46,6 +51,7 @@ export const HighlightItemContainer = styled.div`
       height: 100%;
       z-index: -1;
     }
+
     .genres {
       display: flex;
       align-items: center;
@@ -58,13 +64,16 @@ export const HighlightItemContainer = styled.div`
       font-weight: 800;
       white-space: nowrap;
     }
+
     .title {
       color: var(--color-white);
+      font-size: 3rem;
+
       .title-group {
         color: var(--color-orange);
       }
-      font-size: 3rem;
     }
+
     .description {
       color: var(--color-white);
       font-size: 1.4rem;
@@ -74,11 +83,13 @@ export const HighlightItemContainer = styled.div`
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 3;
     }
+
     .control-buttons {
       margin-top: 2rem;
       display: flex;
       align-items: center;
       gap: 2rem;
+
       button {
         padding: 1rem 1.5rem;
         background-color: var(--color-dark);
@@ -88,14 +99,17 @@ export const HighlightItemContainer = styled.div`
         cursor: pointer;
         transition: all 0.2s ease-in;
         white-space: nowrap;
+
         &:nth-child(2) {
           background-color: var(--color-orange);
           color: var(--color-dark);
         }
+
         &:hover {
           background-color: var(--color-orange);
           color: var(--color-dark);
           transform: scale(1.05);
+
           &:nth-child(2) {
             background-color: var(--color-dark);
             color: var(--color-white);
