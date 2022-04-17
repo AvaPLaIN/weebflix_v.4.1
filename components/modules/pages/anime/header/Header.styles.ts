@@ -49,6 +49,7 @@ export const HeaderContainer = styled.div`
       border-bottom-right-radius: 2rem;
 
       @media (max-width: 1000px) {
+        margin-top: -8rem;
         min-width: 219px;
         max-width: 219px;
         min-height: 300px;
@@ -112,6 +113,7 @@ export const HeaderContainer = styled.div`
         }
 
         @media (max-width: 600px) {
+          width: 100%;
           font-size: 2rem;
         }
 
@@ -156,6 +158,7 @@ export const HeaderContainer = styled.div`
 
         @media (max-width: 600px) {
           font-size: 0.9rem;
+          align-self: center;
         }
 
         span {
@@ -168,7 +171,12 @@ export const HeaderContainer = styled.div`
         gap: 1rem;
         display: flex;
         flex-direction: column;
-        color: var(--color-grey);
+        font-size: 1.2rem;
+        color: var(--color-light-grey);
+
+        @media (max-width: 600px) {
+          align-self: center;
+        }
       }
     }
   }
