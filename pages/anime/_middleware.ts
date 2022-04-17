@@ -1,19 +1,19 @@
-// export { default } from "next-auth/middleware";
+export { default } from "next-auth/middleware";
 
-import { getToken } from "next-auth/jwt";
-import { NextResponse } from "next/server";
+// import { getToken } from "next-auth/jwt";
+// import { NextResponse } from "next/server";
 
-const secret = process.env.NEXTAUTH_SECRET;
+// const secret = process.env.NEXTAUTH_SECRET;
 
-async function middleware(req: any) {
-  const redirectAuthUrl = process.env.REDIRECT_AUTH_URL || "/api/auth/signin";
+// async function middleware(req: any) {
+//   const redirectAuthUrl = process.env.REDIRECT_AUTH_URL || "/api/auth/signin";
 
-  const session = await getToken({
-    req,
-    secret,
-  });
+//   const session = await getToken({
+//     req,
+//     secret,
+//   });
 
-  if (!session) return NextResponse.redirect(redirectAuthUrl);
-}
+//   if (!session) return NextResponse.redirect(redirectAuthUrl);
+// }
 
-export default middleware;
+// export default middleware;

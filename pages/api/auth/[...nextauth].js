@@ -30,4 +30,11 @@ export default NextAuth({
       },
     }),
   ],
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) token.role = user.role;
+
+      return token;
+    },
+  },
 });
