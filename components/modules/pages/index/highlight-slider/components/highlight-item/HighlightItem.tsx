@@ -1,9 +1,9 @@
 import Link from "next/link";
 import React, { memo } from "react";
 import { HighlightItemContainer } from "./HighlightItem.styles";
-import Image from "../../../../widgets/image";
+import Image from "../../../../../../widgets/image";
 import { IHighlightItemProps } from "./HighlightItem.types";
-import { slugifyString } from "../../../../../utils/slugifyString";
+import { slugifyString } from "../../../../../../../utils/slugifyString";
 
 // eslint-disable-next-line react/display-name
 const HighlightItem = memo(({ anime }: IHighlightItemProps) => {

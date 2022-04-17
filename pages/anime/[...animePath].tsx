@@ -5,6 +5,7 @@ import Anime from "../../models/Anime";
 import { slugifyString } from "../../utils/slugifyString";
 import { Anime as AnimeType } from "../../types/anime";
 import Header from "../../components/layout/Head";
+import AnimeHeader from "../../components/modules/pages/anime/header/Header";
 
 const AnimePage = ({ anime }: { anime: AnimeType }) => {
   const { data } = useSession();
@@ -15,6 +16,18 @@ const AnimePage = ({ anime }: { anime: AnimeType }) => {
   return (
     <div>
       <Header title={`Weebflix - ${anime?.titleEng}`} />
+      <AnimeHeader
+        banner={anime.banner}
+        thumnail={anime.thumnail}
+        titleEng={anime.titleEng}
+        titleJap={anime.titleJap}
+        genres={anime.genres}
+        released={anime.released}
+        type={anime.type}
+        groupName={anime.groupName}
+        episodesCount={anime.episodesCount}
+        status={anime.status}
+      />
       <pre>{JSON.stringify(anime, undefined, 2)}</pre>
       <pre>{JSON.stringify(params, undefined, 2)}</pre>
       <pre>{JSON.stringify(data, null, 2)}</pre>

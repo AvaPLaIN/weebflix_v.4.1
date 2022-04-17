@@ -1,4 +1,4 @@
-import { Anime } from "../../../../../types/anime";
+import { Anime } from "../../../../../../../types/anime";
 
 export interface IHighlightItemProps {
   anime: Anime & {

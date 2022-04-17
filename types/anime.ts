@@ -3,7 +3,7 @@ export type Anime = {
   page?: number;
   id?: number;
   titleEng?: string;
-  titleJpn?: string;
+  titleJap?: string;
   groupName?: string;
   type?: string;
   description?: string;
