@@ -2,11 +2,18 @@ import { ISliderItem } from "./SliderItem.types";
 import Link from "next/link";
 import { SliderItemContainer } from "./SliderItem.styles";
 import Image from "../../../../widgets/image";
+import { slugifyString } from "../../../../../utils/slugifyString";
 
 const SliderItem = ({ anime }: ISliderItem) => {
+  const slugifiedTitle = slugifyString(anime?.titleEng || "");
+
   return (
     <SliderItemContainer className="keen-slider__slide">
-      <Link href={{ pathname: `/anime/${anime._id}` }}>
+      <Link
+        href={{
+          pathname: `/anime/${slugifiedTitle}/${anime._id}`,
+        }}
+      >
         <a className="link">
           <div className="airing-slider-image">
             <Image

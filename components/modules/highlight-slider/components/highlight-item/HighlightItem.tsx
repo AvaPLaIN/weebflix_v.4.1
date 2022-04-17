@@ -3,9 +3,12 @@ import React, { memo } from "react";
 import { HighlightItemContainer } from "./HighlightItem.styles";
 import Image from "../../../../widgets/image";
 import { IHighlightItemProps } from "./HighlightItem.types";
+import { slugifyString } from "../../../../../utils/slugifyString";
 
 // eslint-disable-next-line react/display-name
 const HighlightItem = memo(({ anime }: IHighlightItemProps) => {
+  const slugifiedTitle = slugifyString(anime?.titleEng || "");
+
   return (
     <HighlightItemContainer>
       <Image
@@ -28,12 +31,12 @@ const HighlightItem = memo(({ anime }: IHighlightItemProps) => {
         <p className="description">{anime?.description}</p>
         <div className="control-buttons">
           <button>
-            <Link href={{ pathname: `/anime/${anime._id}` }}>
+            <Link href={{ pathname: `/anime/${slugifiedTitle}/${anime._id}` }}>
               <a className="link">Play</a>
             </Link>
           </button>
           <button>
-            <Link href={{ pathname: `/anime/${anime._id}` }}>
+            <Link href={{ pathname: `/anime/${slugifiedTitle}/${anime._id}` }}>
               <a className="link">Read More</a>
             </Link>
           </button>
