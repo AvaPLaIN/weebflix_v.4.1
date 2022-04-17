@@ -19,8 +19,6 @@ export default NextAuth({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
       profile(profile) {
-        // console.log("profile", profile);
-
         return {
           id: profile.id,
           name: profile.name,
@@ -32,13 +30,4 @@ export default NextAuth({
       },
     }),
   ],
-  // theme: {
-  //   colorScheme: "dark",
-  // },
-  // callbacks: {
-  //   async jwt({ token }) {
-  //     token.userRole = "admin";
-  //     return token;
-  //   },
-  // },
 });

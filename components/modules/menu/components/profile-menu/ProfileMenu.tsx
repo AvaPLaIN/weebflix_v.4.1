@@ -2,6 +2,8 @@ import { ProfileMenuContainer } from "./ProfileMenu.styles";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
 
+// TODO - redirect on home page after logout
+
 const ProfileMenu = () => {
   return (
     <ProfileMenuContainer className="profile-menu">
