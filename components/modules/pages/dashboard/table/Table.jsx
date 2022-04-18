@@ -8,7 +8,7 @@ import filterGreaterThan from "./filter/FilterGreaterThan";
 import roundedMedian from "./filter/RoundedMedian";
 import { ITable } from "./Table.types";
 
-const TableContainer = ({ entries }: ITable) => {
+const TableContainer = ({ entries }) => {
   const columns = React.useMemo(
     () => [
       {
@@ -18,28 +18,28 @@ const TableContainer = ({ entries }: ITable) => {
             Header: "Id",
             accessor: "_id",
             aggregate: "count",
-            Aggregated: ({ value }: any) => `${value} Names`,
+            Aggregated: ({ value }) => `${value} Names`,
           },
           {
             Header: "Title Eng",
             accessor: "titleEng",
             filter: "fuzzyText",
             aggregate: "uniqueCount",
-            Aggregated: ({ value }: any) => `${value} Unique Names`,
+            Aggregated: ({ value }) => `${value} Unique Names`,
           },
           {
             Header: "Title Jap",
             accessor: "titleJap",
             filter: "fuzzyText",
             aggregate: "uniqueCount",
-            Aggregated: ({ value }: any) => `${value} Unique Names`,
+            Aggregated: ({ value }) => `${value} Unique Names`,
           },
           {
             Header: "Group Name",
             accessor: "groupName",
             filter: "fuzzyText",
             aggregate: "uniqueCount",
-            Aggregated: ({ value }: any) => `${value} Unique Names`,
+            Aggregated: ({ value }) => `${value} Unique Names`,
           },
         ],
       },
@@ -52,7 +52,7 @@ const TableContainer = ({ entries }: ITable) => {
             Filter: NumberRangeColumnFilter,
             filter: "between",
             aggregate: "average",
-            Aggregated: ({ value }: any) => `${value} (avg)`,
+            Aggregated: ({ value }) => `${value} (avg)`,
           },
           {
             Header: "Status",
@@ -74,7 +74,7 @@ const TableContainer = ({ entries }: ITable) => {
             Filter: SliderColumnFilter,
             filter: filterGreaterThan,
             aggregate: roundedMedian,
-            Aggregated: ({ value }: any) => `${value} (med)`,
+            Aggregated: ({ value }) => `${value} (med)`,
             canGroupBy: false,
           },
         ],

@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "lib/mongodb.js", "pages/api/auth/[...nextauth].js", "pages/anime/_middleware.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "lib/mongodb.js", "pages/api/auth/[...nextauth].js", "pages/anime/_middleware.ts", "components/modules/pages/dashboard/table/index.jsx", "components/modules/pages/dashboard/table/Table.jsx", "components/modules/pages/dashboard/table/Table.styles.js"],
   "exclude": ["node_modules"]
 }
