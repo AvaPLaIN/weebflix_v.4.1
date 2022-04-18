@@ -2,15 +2,14 @@ import styled from "styled-components";
 import { NavItemOnCloseSidebar } from "./components/nav-item/NavItem.styles";
 
 export const SidebarContainer = styled.div`
-  position: sticky;
+  position: fixed;
   transition: all 0.4s ease-in-out;
   left: 0;
-  top: 0;
+  top: 7rem;
   height: 100vh;
   width: 20rem;
   background-color: var(--color-black);
   border-top-right-radius: 2rem;
-  color: white; //TODO adjust color
   display: flex;
   flex-direction: column;
 
