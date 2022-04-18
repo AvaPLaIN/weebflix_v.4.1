@@ -5,6 +5,7 @@ import styles from "../../../styles/dashboard.module.css";
 import { useSession } from "next-auth/react";
 import { dbConnect } from "../../../lib/mongodb";
 import AiringAnime from "../../../models/anime/AiringAnime";
+import Table from "../../../components/modules/pages/dashboard/table";
 
 const AiringPage = ({ animes }: any) => {
   const { data } = useSession();
@@ -17,7 +18,8 @@ const AiringPage = ({ animes }: any) => {
         <h1>
           Welcome <span>{data?.user?.name}</span> to Weebflix Dashboard Airing
         </h1>
-        <pre>{JSON.stringify(animes, undefined, 2)}</pre>
+        <Table entries={animes} />
+        {/* <pre>{JSON.stringify(animes, undefined, 2)}</pre> */}
       </div>
     </div>
   );
