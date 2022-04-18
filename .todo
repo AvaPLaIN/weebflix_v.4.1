@@ -1,4 +1,2 @@
-- add google client for dev and prod
-- add dashboard for scraping animes (only for admin)
-- add anime detail page (only for users)
 - add episodes on detail page (only for premium)
+- add groups for formbuilder

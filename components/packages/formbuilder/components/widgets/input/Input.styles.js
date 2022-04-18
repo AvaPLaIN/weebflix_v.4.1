@@ -3,16 +3,23 @@ import styled from "styled-components";
 export const InputContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 2rem;
   position: relative;
+  color: white;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 10px;
-    left: -33px;
-    width: 30px;
-    height: 1px;
-    background-color: black;
+  .label {
+    min-width: 125px;
+  }
+
+  .control {
+    width: 100%;
+    background-color: var(--color-black);
+    border: none;
+    border-bottom: 1px solid var(--color-grey);
+    color: var(--color-white);
+  }
+
+  .error {
+    white-space: nowrap;
+    color: red;
   }
 `;

@@ -170,7 +170,7 @@ const FormBuilder = ({ form, template }) => {
             {Object.values(items)?.map((item) => (
               <Controller key={item.uuid} item={item} />
             ))}
-            <button type="submit">Submit</button>
+            <button className="submit-button" type="submit">Add</button>
           </form>
         </FormBuilderContainer>
         <StateContainer>
