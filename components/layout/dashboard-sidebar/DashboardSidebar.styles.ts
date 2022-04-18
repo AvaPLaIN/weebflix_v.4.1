@@ -28,7 +28,7 @@ export const SidebarContainer = styled.div`
 
       h1 {
         color: var(--color-light-grey);
-        font-size: 2.2rem;
+        font-size: 1.7rem;
       }
 
       .toggle {
