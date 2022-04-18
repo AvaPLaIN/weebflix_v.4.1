@@ -1,4 +1,4 @@
-import { BiHomeAlt, BiBroadcast, BiCalendar } from "react-icons/bi";
+import { BiHomeAlt, BiListUl, BiBroadcast, BiCalendar } from "react-icons/bi";
 
 const navLinkItems = [
   {
@@ -7,6 +7,13 @@ const navLinkItems = [
     url: "/dashboard",
     exact: true,
     Icon: BiHomeAlt,
+  },
+  {
+    name: "All",
+    tooltip: "All",
+    url: "/dashboard/all",
+    exact: true,
+    Icon: BiListUl,
   },
   {
     name: "Airing",
