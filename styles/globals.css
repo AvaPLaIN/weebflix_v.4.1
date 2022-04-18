@@ -20,7 +20,9 @@ body {
 
 :root {
   /*! --- COLORS --- */
+  --color-black: #0c0c0d;
   --color-dark: #232428;
+  --color-light-dark: #26272a;
   --color-grey: #565657;
   --color-light-grey: #949496;
   --color-white: #e8e8e8;
