@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import { dbConnect } from "../../../lib/mongodb";
 import AiringAnime from "../../../models/anime/AiringAnime";
 import Table from "../../../components/modules/pages/dashboard/table";
+import Controls from "../../../components/modules/pages/dashboard/controls";
 
 const AiringPage = ({ animes }: any) => {
   const { data } = useSession();
@@ -14,12 +15,13 @@ const AiringPage = ({ animes }: any) => {
     <div className={styles.layout}>
       <Header title="Weebflix - Dashboard" />
       <DashboardSidebar />
-      <div className="content-container">
+      <div className={styles.contentContainer}>
         <h1>
-          Welcome <span>{data?.user?.name}</span> to Weebflix Dashboard Airing
+          Welcome <span className="username">{data?.user?.name}</span> to
+          Weebflix Dashboard Airing
         </h1>
+        <Controls />
         <Table entries={animes} />
-        {/* <pre>{JSON.stringify(animes, undefined, 2)}</pre> */}
       </div>
     </div>
   );

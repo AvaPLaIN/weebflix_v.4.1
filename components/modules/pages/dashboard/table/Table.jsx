@@ -18,6 +18,7 @@ const TableContainer = ({ entries }) => {
             accessor: "_id",
             aggregate: "count",
             Aggregated: ({ value }) => `${value} Names`,
+            canGroupBy: false,
           },
           {
             Header: "Title Eng",
@@ -25,6 +26,7 @@ const TableContainer = ({ entries }) => {
             filter: "fuzzyText",
             aggregate: "uniqueCount",
             Aggregated: ({ value }) => `${value} Unique Names`,
+            canGroupBy: false,
           },
           {
             Header: "Title Jap",
@@ -32,6 +34,7 @@ const TableContainer = ({ entries }) => {
             filter: "fuzzyText",
             aggregate: "uniqueCount",
             Aggregated: ({ value }) => `${value} Unique Names`,
+            canGroupBy: false,
           },
           {
             Header: "Group Name",
@@ -39,6 +42,7 @@ const TableContainer = ({ entries }) => {
             filter: "fuzzyText",
             aggregate: "uniqueCount",
             Aggregated: ({ value }) => `${value} Unique Names`,
+            canGroupBy: true,
           },
         ],
       },
@@ -52,20 +56,21 @@ const TableContainer = ({ entries }) => {
             filter: "between",
             aggregate: "average",
             Aggregated: ({ value }) => `${value} (avg)`,
+            canGroupBy: true,
           },
           {
             Header: "Status",
             accessor: "status",
             Filter: SelectColumnFilter,
             filter: "includes",
-            canGroupBy: false,
+            canGroupBy: true,
           },
           {
             Header: "Type",
             accessor: "type",
             Filter: SelectColumnFilter,
             filter: "includes",
-            canGroupBy: false,
+            canGroupBy: true,
           },
           {
             Header: "Episodes",
@@ -84,14 +89,17 @@ const TableContainer = ({ entries }) => {
           {
             Header: "Logo",
             accessor: "logo",
+            canGroupBy: false,
           },
           {
             Header: "Banner",
             accessor: "banner",
+            canGroupBy: false,
           },
           {
             Header: "Trailer",
             accessor: "trailer",
+            canGroupBy: false,
           },
         ],
       },
