@@ -1,8 +1,9 @@
 import React from "react";
+import { FormContainer } from "./Form.styles";
 
 const Form = () => {
   return (
-    <div>
+    <FormContainer>
       <div className="header">
         <h1>Create Form</h1>
         <div className="close">Close</div>
@@ -11,7 +12,7 @@ const Form = () => {
         <form>Form</form>
         <div className="controls">Controls</div>
       </div>
-    </div>
+    </FormContainer>
   );
 };
 
