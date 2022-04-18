@@ -4,6 +4,8 @@ import { BiArrowToLeft, BiArrowToRight, BiPlus } from "react-icons/bi";
 import sidebarConfig from "./data/sidebar-config";
 import NavItem from "./components/nav-item";
 import Form from "../../modules/pages/dashboard/form";
+import formConfig from "../../../data/dashboard-create-form-config";
+import FormBuilder from "../../packages/formbuilder";
 
 const DashboardSidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -48,7 +50,9 @@ const DashboardSidebar = () => {
           </ul>
         </nav>
       </SidebarContainer>
-      {isCreateFormOpen && <Form />}
+      {isCreateFormOpen && (
+        <FormBuilder form={formConfig.form} template={formConfig.template} />
+      )}
     </>
   );
 };
