@@ -6,7 +6,6 @@ import SelectColumnFilter from "./filter/SelectColumnFilter";
 import SliderColumnFilter from "./filter/SliderColumnFilter";
 import filterGreaterThan from "./filter/FilterGreaterThan";
 import roundedMedian from "./filter/RoundedMedian";
-import { ITable } from "./Table.types";
 
 const TableContainer = ({ entries }) => {
   const columns = React.useMemo(
