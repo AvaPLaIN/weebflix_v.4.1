@@ -4,7 +4,7 @@ import DashboardSidebar from "../../../components/layout/dashboard-sidebar";
 import styles from "../../../styles/dashboard.module.css";
 import { useSession } from "next-auth/react";
 import { dbConnect } from "../../../lib/mongodb";
-import Anime from "../../../models/Anime";
+import Anime from "../../../models/anime/Anime";
 
 const AllPage = ({ animes }: any) => {
   const { data } = useSession();
@@ -25,7 +25,7 @@ const AllPage = ({ animes }: any) => {
 
 export async function getStaticProps() {
   await dbConnect();
-  const animes = await Anime.find();
+  const animes = await Anime.find({}, { episodes: 0 });
 
   const transform = {
     animes: JSON.parse(JSON.stringify(animes)),

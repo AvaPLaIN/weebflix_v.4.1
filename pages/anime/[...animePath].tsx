@@ -1,7 +1,7 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { dbConnect } from "../../lib/mongodb";
-import Anime from "../../models/Anime";
+import Anime from "../../models/anime/Anime";
 import { slugifyString } from "../../utils/slugifyString";
 import { Anime as AnimeType } from "../../types/anime";
 import Header from "../../components/layout/Head";

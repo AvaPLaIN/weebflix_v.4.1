@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { dbConnect } from "../lib/mongodb";
-import Anime from "../models/Anime";
+import Anime from "../models/anime/Anime";
 import HighlightSlider from "../components/modules/pages/index/highlight-slider/HighlightSlider";
 import GroupSlider from "../components/modules/group-slider/GroupSlider";
 import Header from "../components/layout/Head";
