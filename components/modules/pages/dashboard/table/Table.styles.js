@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Styles = styled.div`
   padding: 1rem;
+  color: var(--color-light-grey);
 
   table {
     border-spacing: 0;
@@ -9,7 +10,7 @@ export const Styles = styled.div`
     thead {
       tr {
         height: 3rem;
-        color: var(--color-bright-2);
+        color: var(--color-white);
 
         &:nth-child(2) {
           height: 8rem;
@@ -37,10 +38,12 @@ export const Styles = styled.div`
     }
 
     tr {
-      background-color: var(--color-dark-1);
+      background-color: var(--color-black);
+      color: var(--color-white);
 
       &:nth-child(2n + 1) {
-        background-color: var(--color-dark-3);
+        background-color: var(--color-grey);
+        color: var(--color-black);
       }
 
       &:last-child {
@@ -56,13 +59,11 @@ export const Styles = styled.div`
     }
 
     td {
-      color: var(--color-bright-2);
-
       input {
+        color: white;
         padding: 0.5rem 2rem;
         background-color: transparent;
         border: none;
-        color: var(--color-bright-2);
       }
 
       &:first-child {

@@ -1,11 +1,17 @@
 import React from "react";
 import { IoIosCloudDownload } from "react-icons/io";
+import { ControlsContainer } from "./Controls.styles";
 
 const Controls = () => {
   return (
-    <div>
-      <IoIosCloudDownload />
-    </div>
+    <ControlsContainer>
+      <div className="start">
+        <h2>Start</h2>
+        <button>
+          <IoIosCloudDownload />
+        </button>
+      </div>
+    </ControlsContainer>
   );
 };
 
