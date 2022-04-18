@@ -1,4 +1,4 @@
-import { BiHomeAlt, BiBroadcast, BiCalendar } from "react-Icons/bi";
+import { BiHomeAlt, BiBroadcast, BiCalendar } from "react-icons/bi";
 
 const navLinkItems = [
   {
