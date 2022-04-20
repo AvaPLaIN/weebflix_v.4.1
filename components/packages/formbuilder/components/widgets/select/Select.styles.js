@@ -5,9 +5,11 @@ export const SelectContainer = styled.div`
   align-items: center;
   position: relative;
   color: white;
+  gap: 1rem;
 
   .label {
     min-width: 125px;
+    text-align: right;
   }
 
   .control {

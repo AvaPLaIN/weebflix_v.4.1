@@ -17,13 +17,32 @@ export const FormBuilderContainer = styled.div`
     flex-direction: column;
     gap: 1.5rem;
 
-    .submit-button {
-      padding: 1rem;
+    .controls {
+      margin-top: 2rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      .submit-button {
+        padding: 1rem;
+        background-color: green;
+        border: none;
+        color: var(--color-black);
+        font-size: 1.6rem;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .clear-button {
+        padding: 1rem;
+        background-color: red;
+        border: none;
+        color: var(--color-black);
+        font-size: 1.2rem;
+        font-weight: 800;
+        cursor: pointer;
+      }
     }
   }
-`;
-
-export const StateContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
 `;

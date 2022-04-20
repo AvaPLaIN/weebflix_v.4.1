@@ -19,6 +19,13 @@ const DashboardSidebar = () => {
     setIsCreateFormOpen((isCreateFormOpen) => !isCreateFormOpen);
   };
 
+  const handleSubmitForm = (data: any) => {
+    console.log(data);
+    // TODO add config to database
+    // setIsCreateFormOpen(false);
+    // TODO clear form
+  };
+
   const sidebarClassnames = isSidebarOpen ? "open" : "closed";
 
   return (
@@ -51,7 +58,11 @@ const DashboardSidebar = () => {
         </nav>
       </SidebarContainer>
       {isCreateFormOpen && (
-        <FormBuilder form={formConfig.form} template={formConfig.template} />
+        <FormBuilder
+          form={formConfig.form}
+          template={formConfig.template}
+          callback={handleSubmitForm}
+        />
       )}
     </>
   );

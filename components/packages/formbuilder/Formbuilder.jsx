@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import Controller from "./components/widgets/controller";
-import { FormBuilderContainer, StateContainer } from "./FormBuilder.styles";
+import { FormBuilderContainer } from "./FormBuilder.styles";
 import FormStateContext from "./context/formState";
 import get from "lodash/get";
 import set from "lodash/set";
@@ -10,13 +10,12 @@ import compact from "lodash/compact";
 import cloneDeep from "lodash/cloneDeep";
 import addUUIDToTemplate from "./utils/addUUIDToTemplate";
 
-const FormBuilder = ({ form, template }) => {
+const FormBuilder = ({ form, template, callback }) => {
   const [items, setItems] = useState(form);
-  const [data, setData] = useState({});
 
   const methods = useForm();
 
-  const onSubmit = (data) => setData(data);
+  const onSubmit = (data) => callback(data);
 
   const handleUpdateControl = (pathId, value) => {
     const newItems = cloneDeep(items);
@@ -170,15 +169,13 @@ const FormBuilder = ({ form, template }) => {
             {Object.values(items)?.map((item) => (
               <Controller key={item.uuid} item={item} />
             ))}
-            <button className="submit-button" type="submit">Add</button>
+            <div className="controls">
+              <button className="submit-button" type="submit">
+                Add
+              </button>
+            </div>
           </form>
         </FormBuilderContainer>
-        <StateContainer>
-          <div className="state">
-            <h3>Form State</h3>
-            <pre>{JSON.stringify(data, undefined, 2)}</pre>
-          </div>
-        </StateContainer>
       </FormProvider>
     </FormStateContext.Provider>
   );
